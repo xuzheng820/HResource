@@ -1,0 +1,16 @@
+2015/03/31 16:11:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/admin".' in D:\tools\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\tools\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('user/admin')
+#1 D:\tools\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 D:\xampp\project\HResource\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/HResource/index.php?r=user/admin
+---
+2015/03/31 16:11:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user".' in D:\tools\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\tools\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('user')
+#1 D:\tools\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 D:\xampp\project\HResource\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/HResource/index.php?r=user
+---

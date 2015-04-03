@@ -2,58 +2,126 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="language" content="en">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- blueprint CSS framework -->
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection">
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print">
-	<!--[if lt IE 8]>
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection">
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
 	<![endif]-->
 
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css">
+	<!-- Bootstrap core CSS -->
+	<link href="<?php echo Yii::app()->request->baseUrl; ?>/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+	<!-- jPages core CSS -->
+	<link href="<?php echo Yii::app()->request->baseUrl; ?>/lib/js/jpages/css/jPages.css" rel="stylesheet">
+	<link href="<?php echo Yii::app()->request->baseUrl; ?>/lib/js/jpages/css/animate.css" rel="stylesheet">
+
+	<!-- jQuery -->
+	<script src="<?php echo Yii::app()->request->baseUrl; ?>/lib/js/jquery-1.11.2.min.js"></script>
+
+	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
 <body>
 
-<div class="container" id="page">
+<div id="page" style="padding-top: 60px">
 
-	<div id="header">
-		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
+	<div id="header" class="navbar navbar-fixed-top navbar-inverse" role="navigation" >
+		<div class="container-fluid">
+			<div id="logo" class="navbar-header">
+				<a class="navbar-brand" href="<?php echo Yii::app()->homeUrl?>"><span class="glyphicon glyphicon-home"></span> <?php echo CHtml::encode(Yii::app()->name); ?></a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<span class="glyphicon glyphicon-question-sign"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#">在线帮助</a></li>
+							<li><a href="#">研发团队</a></li>
+							<li><a href="#">关于</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<span class="glyphicon glyphicon-user"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#">用户信息</a></li>
+							<li class="divider"></li>
+							<li><a href="/logout.php">注销</a></li>
+						</ul>
+					</li>
+				</ul>
+				<form class="navbar-form navbar-right">
+					<div class="form-group has-feedback">
+						<span class="glyphicon glyphicon-search form-control-feedback"></span>
+						<input type="text" class="form-control" placeholder="Search...">
+					</div>
+				</form>
+				<div class="navbar-form navbar-right"></div>
+			</div>
+		</div>
 	</div><!-- header -->
+	<div id="mainmenu" class="container-fluid">
+		<div class="row">
+			<div id = "leftmenu" class="col-sm-3 col-md-2 col-lg-2 sidebar">
+				<ul class="nav nav-pills nav-stacked has-feedback">
+					<li><a href="#"><span class="glyphicon glyphicon-gift"></span> 雇员管理</a>
+						<ul class="unstyled">
+							<li><a href="<?php echo Yii::app()->createUrl('employee/Show')?>">雇员查询</a></li>
+							<li><a href="<?php echo Yii::app()->createUrl('employee/Show')?>">雇员添加</a></li>
+						</ul>
+					</li>
+					<li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> 假期管理</a>
+						<ul class="unstyled">
+							<li><a href="<?php echo Yii::app()->createUrl('Store/ListProduct')?>">假期查询</a></li>
+						</ul>
+					</li>
+					<!--
+					<li><a href="#"><span class="glyphicon glyphicon-tasks"></span> 任务管理</a>
+						<ul class="unstyled">
+							<li><a href="<?php echo Yii::app()->createUrl('Quest/ListDailyQuest')?>">日常任务</a></li>
+							<li><a href="<?php echo Yii::app()->createUrl('Quest/ListActivityQuest')?>">活动任务</a></li>
+						</ul>
+					</li>
+                                        <li><a href="#"><span class="glyphicon glyphicon-wrench"></span> GM</a></li>
+                    -->
+				</ul>
 
-	<div id="mainmenu">
-		<?php $this->widget('zii.widgets.CMenu',array(
-			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
-			),
-		)); ?>
+				<ul class="nav nav-pills nav-stacked">
+					<li><a class="back-to-top" href="#top">返回顶部</a></li>
+				</ul>
+			</div>
+			<div id = "content" class="col-sm-9 col-md-10 col-lg-10 main">
+				<?php if(isset($this->breadcrumbs)):?>
+					<?php $this->widget('zii.widgets.CBreadcrumbs', array(
+						'links'=>$this->breadcrumbs,
+					)); ?><!-- breadcrumbs -->
+				<?php endif?>
+
+				<?php echo $content; ?>
+			</div>
+		</div>
 	</div><!-- mainmenu -->
-	<?php if(isset($this->breadcrumbs)):?>
-		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
-			'links'=>$this->breadcrumbs,
-		)); ?><!-- breadcrumbs -->
-	<?php endif?>
-
-	<?php echo $content; ?>
-
-	<div class="clear"></div>
-
 	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-		All Rights Reserved.<br/>
-		<?php echo Yii::powered(); ?>
+		<p class="text-center">Copyright &copy; <?php echo date('Y'); ?> by Jingle Company. All Rights Reserved.</p>
+		<p class="text-center"><?php echo Yii::powered(); ?></p>
 	</div><!-- footer -->
 
 </div><!-- page -->
 
+<!-- Bootstrap core JavaScript -->
+<!-- Bootstrap core JavaScript -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/lib/js/jpages/js/jPages.min.js"></script>
 </body>
 </html>

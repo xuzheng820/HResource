@@ -40,11 +40,6 @@ $this->breadcrumbs=array(
 						<select class="form-control" id="search_item_category">
 							<option value="0" selected>男</option>
 							<option value="1">女</option>
-							<!--
-							<option value="Tarot">塔罗牌</option>
-							<option value="Crystal">水晶</option>
-							<option value="Misc">混合</option>
-                            -->
 						</select>
 					</div>
 				</div>
@@ -88,10 +83,11 @@ $this->breadcrumbs=array(
 				</div>
 			</div>
 		</form>
-
 	</div>
 </div>
 
+<div class="">
+</div>
 
 <div class="modal fade" id="add_item_modal" role="dialog" aria-labelledby="add_item_modal_label" aria-hidden="true">
 	<div class="modal-dialog">
@@ -124,7 +120,7 @@ $this->breadcrumbs=array(
 					</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-				<button type="button" class="btn btn-primary" id="edit_btn">保存</button>
+				<button type="button" class="btn btn-primary" id="add_employeee_btn">保存</button>
 			</div>
 		</div>
 	</div>
@@ -132,16 +128,20 @@ $this->breadcrumbs=array(
 
 <script>
 	$(function(){
-
+		$('#search_btn').click(function () {
+			var btn = $(this);
+			btn.attr('disabled', true);
+			var url = "<?php echo Yii::app()->createUrl('Inventory/getEmployee') ?>"
+			$.post(url, {
+				'CN_Name' : (#)
+			}, function(data) {}, 'json');
+		});
 		//修改物品模态框中保存按钮事件
-		$('#edit_btn').click(function() {
+		$('#add_employeee_btn').click(function() {
 			var btn = $(this);
 			btn.attr('disabled', true);
 			var url = "<?php echo Yii::app()->createUrl('Inventory/SaveItem') ?>";
-			$.post(url, {
-			}, function(data) {
-
-			}, 'json');
+			$.post(url, {}, function(data) {}, 'json');
 
 		});
 

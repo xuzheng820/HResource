@@ -5,17 +5,19 @@
  *
  * The followings are the available columns in table 'tbl_employee':
  * @property integer $id
- * @property string $CN_NAME
- * @property string $EN_NAME
- * @property integer $SEX
- * @property integer $AGE
- * @property string $ID_Num
- * @property string $ENTRY_TIME
- * @property string $Social_ID
- * @property string $address
- * @property string $account
- * @property string $field4
- * @property string $field5
+ * @property string $Account
+ * @property string $Name
+ * @property string $Id_Num
+ * @property string $Sex
+ * @property string $Age
+ * @property string $Team
+ * @property string $Position
+ * @property string $Manager
+ * @property string $Tel
+ * @property string $E_mail
+ * @property string $Entry_Time
+ * @property string $Contact_STime
+ * @property string $Contact_ETime
  */
 class Employee extends CActiveRecord
 {
@@ -35,14 +37,10 @@ class Employee extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('SEX, AGE, ID_Num, ENTRY_TIME', 'required'),
-			array('SEX, AGE', 'numerical', 'integerOnly'=>true),
-			array('CN_NAME, EN_NAME, Social_ID, address', 'length', 'max'=>128),
-			array('ID_Num', 'length', 'max'=>30),
-			array('account, field4, field5', 'safe'),
+			array('Account, Name, Id_Num, Sex, Age, Team, Position, Manager, Tel, E_mail, Entry_Time, Contact_STime, Contact_ETime', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, CN_NAME, EN_NAME, SEX, AGE, ID_Num, ENTRY_TIME, Social_ID, address, account, field4, field5', 'safe', 'on'=>'search'),
+			array('id, Account, Name, Id_Num, Sex, Age, Team, Position, Manager, Tel, E_mail, Entry_Time, Contact_STime, Contact_ETime', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -64,17 +62,19 @@ class Employee extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'CN_NAME' => '中文姓名',
-			'EN_NAME' => '英文姓名',
-			'SEX' => '性别',
-			'AGE' => '年龄',
-			'ID_Num' => '身份证号',
-			'ENTRY_TIME' => '入职时间',
-			'Social_ID' => '社保账号',
-			'address' => '家庭住址',
-			'account' => '员工编号',
-			'field4' => 'Field4',
-			'field5' => 'Field5',
+			'Account' => 'Account',
+			'Name' => 'Name',
+			'Id_Num' => 'Id Num',
+			'Sex' => 'Sex',
+			'Age' => 'Age',
+			'Team' => 'Team',
+			'Position' => 'Position',
+			'Manager' => 'Manager',
+			'Tel' => 'Tel',
+			'E_mail' => 'E Mail',
+			'Entry_Time' => 'Entry Time',
+			'Contact_STime' => 'Contact Stime',
+			'Contact_ETime' => 'Contact Etime',
 		);
 	}
 
@@ -97,17 +97,19 @@ class Employee extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('CN_NAME',$this->CN_NAME,true);
-		$criteria->compare('EN_NAME',$this->EN_NAME,true);
-		$criteria->compare('SEX',$this->SEX);
-		$criteria->compare('AGE',$this->AGE);
-		$criteria->compare('ID_Num',$this->ID_Num,true);
-		$criteria->compare('ENTRY_TIME',$this->ENTRY_TIME,true);
-		$criteria->compare('Social_ID',$this->Social_ID,true);
-		$criteria->compare('address',$this->address,true);
-		$criteria->compare('account',$this->account,true);
-		$criteria->compare('field4',$this->field4,true);
-		$criteria->compare('field5',$this->field5,true);
+		$criteria->compare('Account',$this->Account,true);
+		$criteria->compare('Name',$this->Name,true);
+		$criteria->compare('Id_Num',$this->Id_Num,true);
+		$criteria->compare('Sex',$this->Sex,true);
+		$criteria->compare('Age',$this->Age,true);
+		$criteria->compare('Team',$this->Team,true);
+		$criteria->compare('Position',$this->Position,true);
+		$criteria->compare('Manager',$this->Manager,true);
+		$criteria->compare('Tel',$this->Tel,true);
+		$criteria->compare('E_mail',$this->E_mail,true);
+		$criteria->compare('Entry_Time',$this->Entry_Time,true);
+		$criteria->compare('Contact_STime',$this->Contact_STime,true);
+		$criteria->compare('Contact_ETime',$this->Contact_ETime,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

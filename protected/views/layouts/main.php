@@ -23,8 +23,9 @@
 
 	<!-- jQuery -->
 	<script src="<?php echo Yii::app()->request->baseUrl; ?>/lib/js/jquery-1.11.2.min.js"></script>
+	<script src="<?php echo Yii::app()->request->baseUrl; ?>/lib/bootstrap/js/bootstrap.min.js"></script>
+	<script src="<?php echo Yii::app()->request->baseUrl; ?>/lib/js/jpages/js/jPages.min.js"></script>
 
-	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
@@ -76,24 +77,14 @@
 				<ul class="nav nav-pills nav-stacked has-feedback">
 					<li><a href="#"><span class="glyphicon glyphicon-gift"></span> 雇员管理</a>
 						<ul class="unstyled">
-							<li><a href="<?php echo Yii::app()->createUrl('employee/Show')?>">雇员查询</a></li>
-							<li><a href="<?php echo Yii::app()->createUrl('employee/Show')?>">雇员添加</a></li>
+							<li><a href="<?php echo Yii::app()->createUrl('employee/ListEmp')?>">雇员查询</a></li>
 						</ul>
 					</li>
 					<li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> 假期管理</a>
 						<ul class="unstyled">
-							<li><a href="<?php echo Yii::app()->createUrl('Store/ListProduct')?>">假期查询</a></li>
+							<li><a href="<?php echo Yii::app()->createUrl('employee/Index')?>">假期查询</a></li>
 						</ul>
 					</li>
-					<!--
-					<li><a href="#"><span class="glyphicon glyphicon-tasks"></span> 任务管理</a>
-						<ul class="unstyled">
-							<li><a href="<?php echo Yii::app()->createUrl('Quest/ListDailyQuest')?>">日常任务</a></li>
-							<li><a href="<?php echo Yii::app()->createUrl('Quest/ListActivityQuest')?>">活动任务</a></li>
-						</ul>
-					</li>
-                                        <li><a href="#"><span class="glyphicon glyphicon-wrench"></span> GM</a></li>
-                    -->
 				</ul>
 
 				<ul class="nav nav-pills nav-stacked">
@@ -121,7 +112,6 @@
 <!-- Bootstrap core JavaScript -->
 <!-- Bootstrap core JavaScript -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="<?php echo Yii::app()->request->baseUrl; ?>/lib/bootstrap/js/bootstrap.min.js"></script>
-<script src="<?php echo Yii::app()->request->baseUrl; ?>/lib/js/jpages/js/jPages.min.js"></script>
+
 </body>
 </html>

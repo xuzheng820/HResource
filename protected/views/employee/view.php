@@ -59,13 +59,13 @@ $this->breadcrumbs=array(
                     </div>
                 </div>
                 <div class="form-group col-sm-3">
-                    <label for="search_contact_start_time" class="col-sm-2 control-label">合同起始时间</label>
+                    <label for="search_contact_start_time" class="col-sm-4 control-label">合同起始时间</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="search_contact_start_time">
                     </div>
                 </div>
                 <div class="form-group col-sm-3">
-                    <label for="search_contact_end_time" class="col-sm-2 control-label">合同结束时间</label>
+                    <label for="search_contact_end_time" class="col-sm-4 control-label">合同结束时间</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="search_contact_end_time">
                     </div>
@@ -114,7 +114,8 @@ $this->breadcrumbs=array(
     </div>
 </div>
 
-<table class="table-responsive">
+<table class="table">
+    <caption>雇员搜索结果</caption>
     <thead>
         <tr>
             <th>Account ID</th>
@@ -128,8 +129,7 @@ $this->breadcrumbs=array(
             <th>Team</th>
             <th>职位</th>
             <th>Manager</th>
-            <th>Tel</th>
-            <th>Mail</th>
+            <th>操作</th>
         </tr>
     </thead>
     <tbody>
@@ -176,18 +176,6 @@ $this->breadcrumbs=array(
                         <label for="add_id_num" class="col-sm-3 control-label"><span style="color: red">*</span>身份证号</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="add_id_num">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="add_tel" class="col-sm-3 control-label"><span style="color: red">*</span>Tel</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="add_tel">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="add_mail" class="col-sm-3 control-label"><span style="color: red">*</span>Mail</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="add_mail">
                         </div>
                     </div>
                     <div class="form-group">
